@@ -2,6 +2,9 @@
 |:--:|
 |Python utility library for detecting and transliterating Hiragana, Katakana, and Romaji|
 
+## This library uses Semantic Versioning
+
+See what this means [here](https://semver.org/)
 
 ## Demo
 
