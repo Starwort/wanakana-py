@@ -1,7 +1,6 @@
-||
-|:--:|
 |ワナカナ \<--> WanaKana \<--> わなかな|
-|Javascript utility library for detecting and transliterating Hiragana, Katakana, and Romaji|
+|:--:|
+|Python utility library for detecting and transliterating Hiragana, Katakana, and Romaji|
 
 
 ## Demo
