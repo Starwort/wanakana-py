@@ -20,6 +20,7 @@ setup(
     version=version["__version__"],
     description=("Show how to structure a Python project."),
     long_description=long_description,
+    long_description_content_type="text/markdown",
     author="starwort",
     url="https://github.com/starwort/wanakana",
     license="MPL-2.0",
