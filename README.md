@@ -36,7 +36,7 @@ from wanakana import to_kana, is_romaji
 wanakana.is_japanese('泣き虫。！〜２￥ｚｅｎｋａｋｕ')
 # => True
 
-wanakana.is_kana('あーア')
+wanakana.is_kana('あーア') # FIXME: returns False
 # => True
 
 wanakana.is_hiragana('すげー')
@@ -59,10 +59,10 @@ wanakana.to_kana('座禅‘zazen’スタイル')
 # => '座禅「ざぜん」スタイル'
 wanakana.to_kana('batsuge-mu')
 # => 'ばつげーむ'
-wanakana.to_kana('wanakana', custom_kana_mapping={'na': 'に', 'ka': 'bana' })
+wanakana.to_kana('wanakana', custom_kana_mapping={'na': 'に', 'ka': 'bana'}) # FIXME: custom_kana_mapping ignored
 # => 'わにbanaに'
 
-wanakana.to_hiragana('toukyou, オオサカ')
+wanakana.to_hiragana('toukyou, オオサカ') # FIXME: does not convert kana
 # => 'とうきょう、　おおさか'
 wanakana.to_hiragana('only カナ', ignore_romaji=True)
 # => 'only かな'
@@ -101,6 +101,8 @@ wanakana.tokenise('hello 田中さん')
 # => ['hello', ' ', '田中', 'さん']
 wanakana.tokenise('I said 私はすごく悲しい', compact=True)
 # => [ 'I said ', '私はすごく悲しい']
+
+# FIXME: tokenise does not work correctly when using detailed
 ```
 
 ## Contributors

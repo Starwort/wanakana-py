@@ -189,7 +189,7 @@ def create_kana_to_hepburn_map() -> dict:
         for y_kana, y_roma in SMALL_Y_EXTRA.items():
             set_trans(kana + y_kana, first_romaji_char + y_roma)
 
-    for kana, roma in YOON_EXCEPTIONS:
+    for kana, roma in YOON_EXCEPTIONS.items():
         # じゃ -> ja
         for y_kana, y_roma in SMALL_Y.items():
             set_trans(kana + y_kana, roma + y_roma[1])

@@ -47,7 +47,7 @@ def is_mixed(input: str = "", ignore_kanji: bool = True) -> bool:
     return (
         (not is_empty(input))
         and any(is_char_kana(char) for char in input)
-        and any(is_char_romaji)
+        and any(is_char_romaji(char) for char in input)
         and (ignore_kanji or not any(is_char_kanji(char) for char in input))
     )
 

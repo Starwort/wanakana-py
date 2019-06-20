@@ -23,7 +23,7 @@ def apply_mapping(
     def new_chunk(remaining: str, current_cursor: int):
         first_char = remaining[0]
         return parse(
-            assign({"": first_char}, root[first_char]),
+            assign({"": first_char}, root.get(first_char)),
             remaining[1:],
             current_cursor,
             current_cursor + 1,
