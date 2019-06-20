@@ -68,7 +68,7 @@ def create_romaji_to_kana_map(
 
     if custom_kana_mapping:
         if not custom_roma_to_kana:
-            custom_roma_to_kana = merge_custom_mapping(map)
+            custom_roma_to_kana = merge_custom_mapping(map, custom_kana_mapping)
         map = custom_roma_to_kana
 
     return map
