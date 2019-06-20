@@ -2,7 +2,7 @@ from ..constants import ROMAJI_RANGES, DEFAULT_OPTIONS
 
 
 def is_empty(text: str) -> bool:
-    return (not isinstance(text, str)) or (not len(text))
+    return (not isinstance(text, str)) or (not text)
 
 
 def is_char_in_range(char: str = "", start: int = 0, end: int = 0) -> bool:
