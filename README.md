@@ -34,24 +34,24 @@ from wanakana import to_kana, is_romaji
 ```python
 ### TEXT CHECKING UTILITIES ###
 wanakana.is_japanese('泣き虫。！〜２￥ｚｅｎｋａｋｕ')
-# => true
+# => True
 
 wanakana.is_kana('あーア')
-# => true
+# => True
 
 wanakana.is_hiragana('すげー')
-# => true
+# => True
 
 wanakana.is_katakana('ゲーム')
-# => true
+# => True
 
 wanakana.is_kanji('切腹')
-# => true
+# => True
 wanakana.is_kanji('勢い')
-# => false
+# => False
 
-wanakana.isRomaji('Tōkyō and Ōsaka')
-# => true
+wanakana.is_romaji('Tōkyō and Ōsaka')
+# => True
 
 wanakana.to_kana('ONAJI buttsuuji')
 # => 'オナジ ぶっつうじ'
