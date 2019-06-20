@@ -62,7 +62,7 @@ wanakana.to_kana('batsuge-mu')
 wanakana.to_kana('wanakana', custom_kana_mapping={'na': 'に', 'ka': 'bana'})
 # => 'わにbanaに'
 
-wanakana.to_hiragana('toukyou, オオサカ') # FIXME: does not convert kana
+wanakana.to_hiragana('toukyou, オオサカ')
 # => 'とうきょう、　おおさか'
 wanakana.to_hiragana('only カナ', ignore_romaji=True)
 # => 'only かな'
