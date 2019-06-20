@@ -59,7 +59,7 @@ wanakana.to_kana('座禅‘zazen’スタイル')
 # => '座禅「ざぜん」スタイル'
 wanakana.to_kana('batsuge-mu')
 # => 'ばつげーむ'
-wanakana.to_kana('wanakana', custom_kana_mapping={'na': 'に', 'ka': 'bana'}) # FIXME: custom_kana_mapping ignored
+wanakana.to_kana('wanakana', custom_kana_mapping={'na': 'に', 'ka': 'bana'})
 # => 'わにbanaに'
 
 wanakana.to_hiragana('toukyou, オオサカ') # FIXME: does not convert kana
