@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import os
 import sys
 
@@ -24,7 +24,7 @@ setup(
     author="starwort",
     url="https://github.com/starwort/wanakana",
     license="MPL-2.0",
-    packages=["wanakana"],
+    packages=find_packages(),
     include_package_data=True,
     classifiers=["Programming Language :: Python :: 3.6"],
 )
