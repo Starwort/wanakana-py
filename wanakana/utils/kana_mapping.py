@@ -1,7 +1,9 @@
-from typing import Callable, Union
+from typing import Callable, Union, List
 
 
-def apply_mapping(string: str, mapping: dict, convert_ending: bool) -> str:
+def apply_mapping(
+    string: str, mapping: dict, convert_ending: bool
+) -> List[List[int, int, str]]:
     root = mapping.copy()  # no idea if it's being mutated but they decided to copy it
 
     def assign(target: dict, source: dict) -> dict:
