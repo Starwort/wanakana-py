@@ -1,6 +1,6 @@
 from .english import is_char_english_punctuation
 from .japanese import is_char_japanese_punctuation
-from ..constants import ROMAJI_RANGES
+from ..constants import ROMAJI_RANGES, DEFAULT_OPTIONS
 
 
 def is_empty(text: str) -> bool:
@@ -23,3 +23,9 @@ def is_char_punctuation(char: str = "") -> bool:
 def is_char_romaji(char: str = "") -> bool:
     """Tests if a character is Romaji (using Hepburn romanisation)."""
     return any(is_char_in_range(char, start, end) for start, end in ROMAJI_RANGES)
+
+
+def merge_with_default_options(options):
+    new_options = {}
+    new_options.update(DEFAULT_OPTIONS).update(options)
+    return new_options

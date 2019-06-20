@@ -3,7 +3,7 @@ from ..common import is_char_in_range
 from .common import is_char_long_dash
 
 
-def is_char_katakana(char: str = "") -> bool:
+def is_char_hiragana(char: str = "") -> bool:
     """Tests if a character is Katakana."""
     if is_char_long_dash(char):
         return True

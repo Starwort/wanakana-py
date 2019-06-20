@@ -1,3 +1,16 @@
+TO_KANA_METHODS = {"HIRAGANA": "to_hiragana", "KATAKANA": "to_katakana"}
+
+ROMANISATIONS = {"HEPBURN": "hepburn"}
+
+DEFAULT_OPTIONS = {
+    "use_obsolete_kana": False,
+    "pass_romaji": False,
+    "uppercase_katakana": False,
+    "ignore_case": False,
+    "IME_mode": False,
+    "romanisation": ROMANISATIONS["HEPBURN"],
+}
+
 LATIN_LOWERCASE_START = 0x61
 LATIN_LOWERCASE_END = 0x7A
 LATIN_UPPERCASE_START = 0x41
