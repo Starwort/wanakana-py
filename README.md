@@ -64,14 +64,14 @@ wanakana.to_kana('wanakana', custom_kana_mapping={'na': 'に', 'ka': 'bana' })
 
 wanakana.to_hiragana('toukyou, オオサカ')
 # => 'とうきょう、　おおさか'
-wanakana.to_hiragana('only カナ', pass_romaji=True)
+wanakana.to_hiragana('only カナ', ignore_romaji=True)
 # => 'only かな'
 wanakana.to_hiragana('wi', use_obsolete_kana=True)
 # => 'ゐ'
 
 wanakana.to_katakana('toukyou, おおさか')
 # => 'トウキョウ、　オオサカ'
-wanakana.to_katakana('only かな', pass_romaji=True)
+wanakana.to_katakana('only かな', ignore_romaji=True)
 # => 'only カナ'
 wanakana.to_katakana('wi', use_obsolete_kana=True)
 # => 'ヰ'
