@@ -1,5 +1,3 @@
-from .english import is_char_english_punctuation
-from .japanese import is_char_japanese_punctuation
 from ..constants import ROMAJI_RANGES, DEFAULT_OPTIONS
 
 
@@ -13,11 +11,6 @@ def is_char_in_range(char: str = "", start: int = 0, end: int = 0) -> bool:
         return False
     code = ord(char[0])
     return start <= code <= end
-
-
-def is_char_punctuation(char: str = "") -> bool:
-    """Tests if a character is considered Japanese or English punctuation"""
-    return is_char_english_punctuation(char) or is_char_japanese_punctuation(char)
 
 
 def is_char_romaji(char: str = "") -> bool:

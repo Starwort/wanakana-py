@@ -1,5 +1,6 @@
 from ...constants import KATAKANA_START, HIRAGANA_START
-from .common import is_char_long_dash, is_char_slash_dot, is_char_hiragana
+from .common import is_char_long_dash, is_char_slash_dot
+from .hiragana import is_char_hiragana
 
 
 def hiragana_to_katakana(input: str) -> str:

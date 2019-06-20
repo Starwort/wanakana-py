@@ -5,8 +5,6 @@ from ...constants import (
     JA_PUNCTUATION_RANGES,
 )
 from ..common import is_empty, is_char_in_range
-from .hiragana import is_char_hiragana
-from .katakana import is_char_hiragana
 
 
 def is_char_long_dash(char: str = "") -> bool:
@@ -31,8 +29,3 @@ def is_char_japanese_punctuation(char: str = "") -> bool:
     return any(
         is_char_in_range(char, start, end) for start, end in JA_PUNCTUATION_RANGES
     )
-
-
-def is_char_kana(char: str = "") -> bool:
-    """Tests if a character is Hiragana or Katakana."""
-    return is_char_hiragana(char) or is_char_hiragana(char)

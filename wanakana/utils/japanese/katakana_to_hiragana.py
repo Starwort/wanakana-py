@@ -1,6 +1,7 @@
 from typing import Callable
 from ...constants import KATAKANA_START, HIRAGANA_START
-from .common import is_char_long_dash, is_char_slash_dot, is_char_hiragana
+from .common import is_char_long_dash, is_char_slash_dot
+from .katakana import is_char_katakana
 
 is_char_initial_long_dash = lambda char, index: index == 0 and is_char_long_dash(char)
 is_char_inner_long_dash = lambda char, index: index > 0 and is_char_long_dash(char)
@@ -29,14 +30,14 @@ def katakana_to_hiragana(
             romaji = to_romaji(previous_kana)[-1]
             # However, ensure 'オー' => 'おお' => 'oo' if this is a transform on the way to romaji
             if (
-                is_char_hiragana(input[index - 1])
+                is_char_katakana(input[index - 1])
                 and romaji == "o"
                 and is_destination_romaji
             ):
                 hira.append("o")
             else:
                 hira.append(LONG_VOWELS[romaji])
-        elif (not is_char_long_dash(char)) and is_char_hiragana(char):
+        elif (not is_char_long_dash(char)) and is_char_katakana(char):
             # Shift char code
             code = ord(char[0]) + (HIRAGANA_START - KATAKANA_START)
             hira_char = chr(code)
