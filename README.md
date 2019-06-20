@@ -36,7 +36,7 @@ from wanakana import to_kana, is_romaji
 wanakana.is_japanese('泣き虫。！〜２￥ｚｅｎｋａｋｕ')
 # => True
 
-wanakana.is_kana('あーア') # FIXME: returns False
+wanakana.is_kana('あーア')
 # => True
 
 wanakana.is_hiragana('すげー')

@@ -8,4 +8,4 @@ from .hiragana_to_katakana import hiragana_to_katakana
 
 def is_char_kana(char: str = "") -> bool:
     """Tests if a character is Hiragana or Katakana."""
-    return is_char_hiragana(char) or is_char_hiragana(char)
+    return is_char_hiragana(char) or is_char_katakana(char)
