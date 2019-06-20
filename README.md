@@ -101,8 +101,6 @@ wanakana.tokenise('hello 田中さん')
 # => ['hello', ' ', '田中', 'さん']
 wanakana.tokenise('I said 私はすごく悲しい', compact=True)
 # => [ 'I said ', '私はすごく悲しい']
-
-# FIXME: tokenise does not work correctly when using detailed
 ```
 
 ## Contributors

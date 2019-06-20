@@ -158,7 +158,7 @@ def tokenise(
         new_value = char
 
         if same_type:
-            new_value = tokens.pop()[1] if detailed else tokens.pop() + new_value
+            new_value = (tokens.pop()[1] if detailed else tokens.pop()) + new_value
 
         tokens.append([curr_type, new_value] if detailed else new_value)
     return tokens
