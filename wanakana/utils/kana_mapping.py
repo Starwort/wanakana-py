@@ -1,9 +1,9 @@
-from typing import Callable, Union, List
+from typing import Callable, Union, List, Tuple
 
 
 def apply_mapping(
     string: str, mapping: dict, convert_ending: bool
-) -> List[List[int, int, str]]:
+) -> List[Tuple[int, int, str]]:
     root = mapping.copy()  # no idea if it's being mutated but they decided to copy it
 
     def assign(target: dict, source: dict) -> dict:
@@ -34,20 +34,20 @@ def apply_mapping(
             if convert_ending or len(tree.keys()) == 1:
                 # nothing more to consume, just commit the last chunk and return it
                 # so as not to have an empty element at the end of the result
-                return [[last_cursor, current_cursor, tree[""]]] if tree[""] else []
+                return [(last_cursor, current_cursor, tree[""])] if tree[""] else []
             # if we don't want to convert the ending, because there are still possible
             # continuations, return None as the final node value
-            return [[last_cursor, current_cursor, None]]
+            return [(last_cursor, current_cursor, None)]
 
         if len(tree.keys()) == 1:
-            return [[last_cursor, current_cursor, tree[""]]] + new_chunk(
+            return [(last_cursor, current_cursor, tree[""])] + new_chunk(
                 remaining, current_cursor
             )
 
         subtree = next_subtree(tree, remaining[0])
 
         if not subtree:
-            return [[last_cursor, current_cursor, tree[""]]] + new_chunk(
+            return [(last_cursor, current_cursor, tree[""])] + new_chunk(
                 remaining, current_cursor
             )
         # continue current branch
@@ -69,7 +69,10 @@ def transform(tree: dict):
 def get_subtree_of(tree: dict, string: str):
     correct_subtree = tree
     for char in string:
-        correct_subtree = correct_subtree.get(char, {})
+        next_subtree = correct_subtree.get(char)
+        if not next_subtree:
+            next_subtree = correct_subtree[char] = {}
+        correct_subtree = next_subtree
     return correct_subtree
 
 
