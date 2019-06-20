@@ -18,7 +18,7 @@ with open(os.path.join(_here, "wanakana", "version.py")) as file:
 setup(
     name="wanakana-python",
     version=version["__version__"],
-    description=("Show how to structure a Python project."),
+    description=("A port of WanaKana, a JS library by Tofugu"),
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="starwort",
