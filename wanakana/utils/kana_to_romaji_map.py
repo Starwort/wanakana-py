@@ -356,5 +356,5 @@ def get_kana_to_romaji_tree(*, romanisation: str, **kwargs) -> dict:
     if romanisation == ROMANISATIONS["HEPBURN"]:
         return get_kana_to_hepburn_tree()
     if romanisation == ROMANISATIONS["KUNREI"]:
-        return get_kana_to_hepburn_tree()
+        return get_kana_to_kunrei_tree()
     return {}
