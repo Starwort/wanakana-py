@@ -318,14 +318,17 @@ def create_kana_to_kunrei_map() -> dict:
         for y_kana, y_roma in SMALL_Y_EXTRA.items():
             set_trans(kana + y_kana, first_romaji_char + y_roma)
 
-    for kana, roma in YOON_EXCEPTIONS.items():
-        # じゃ -> ja
-        for y_kana, y_roma in SMALL_Y.items():
-            set_trans(kana + y_kana, roma + y_roma[1])
+    # there are no yoon exceptions, but we do need to process the kana
+    for kana in YOON_EXCEPTIONS.keys():
+        first_romaji_char = subtree_of(kana)[""][0]
 
-        # じぃ -> jyi, じぇ -> je
-        set_trans(f"{kana}ぃ", f"{roma}yi")
-        set_trans(f"{kana}ぇ", f"{roma}e")
+        # じゃ -> zya
+        for y_kana, y_roma in SMALL_Y.items():
+            set_trans(kana + y_kana, first_romaji_char + y_roma)
+
+        # じぃ -> zyi
+        for y_kana, y_roma in SMALL_Y_EXTRA.items():
+            set_trans(kana + y_kana, first_romaji_char + y_roma)
 
     romaji_tree["っ"] = resolve_tsu(romaji_tree)
 
