@@ -1,6 +1,6 @@
 TO_KANA_METHODS = {"HIRAGANA": "to_hiragana", "KATAKANA": "to_katakana"}
 
-ROMANISATIONS = {"HEPBURN": "hepburn"}
+ROMANISATIONS = {"HEPBURN": "hepburn", "KUNREI": "kunrei"}
 
 DEFAULT_OPTIONS = {
     "use_obsolete_kana": False,
