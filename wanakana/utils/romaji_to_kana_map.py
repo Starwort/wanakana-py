@@ -81,6 +81,7 @@ ALIASES = {
     "shi": "si",
     "chi": "ti",
     "tsu": "tu",
+    "dzu": "du",
     "ji": "zi",
     "dji": "di",
     "fu": "hu",
