@@ -135,23 +135,16 @@ def to_kana(
         )
     )
 
-
-custom_kana_to_roma = None
-
-
 def split_into_romaji(
     input: str,
     custom_romaji_mapping: dict = None,
     convert_ending: bool = True,
     romanisation: ROMANISATIONS = ROMANISATIONS["HEPBURN"],
 ) -> List[Tuple[int, int, str]]:
-    global custom_kana_to_roma
     map = get_kana_to_romaji_tree(romanisation=romanisation)
 
     if custom_romaji_mapping:
-        if not custom_kana_to_roma:
-            custom_kana_to_roma = merge_custom_mapping(map, custom_romaji_mapping)
-        map = custom_kana_to_roma
+        map = merge_custom_mapping(map, custom_romaji_mapping)
 
     return apply_mapping(
         katakana_to_hiragana(input, to_romaji, True), map, convert_ending
@@ -239,3 +232,55 @@ def to_katakana(
         return hiragana_to_katakana(hiragana)
 
     return hiragana_to_katakana(input)
+
+
+def normalise_romaji(
+    input: str = "",
+    destination_romanisation: ROMANISATIONS = ROMANISATIONS["HEPBURN"],
+    ignore_kana: bool = True,
+) -> str:
+    """Normalises romaji in input to the convention specified.
+
+    If `ignore_kana` is set, kana will NOT be converted to romaji.
+    (this is the default behaviour). However, if it is unset, kana
+    will be transcribed into romaji of the convention specified.
+
+    If `destination_romanisation` is not a member of `wanakana.ROMANISATIONS`
+    then no change will occur to the text regardless of the other settings."""
+
+    # make sure that the destination romanisation is valid
+    if not destination_romanisation in ROMANISATIONS.values():
+        # if it isn't just send back the input as noted in the docstring
+        return input
+
+    # if we aren't ignoring kana, we can just use to_romaji on the
+    # full string of kana
+    if not ignore_kana:
+        return to_romaji(
+            to_kana(input),
+            uppercase_katakana=True,
+            romanisation=destination_romanisation,
+        )
+
+    # we have to preserve kana, so first tokenise the input
+    # compact flag is set to create groups to make this faster
+    # detailed flag is set to avoid unnecessary extra checks
+    tokens = tokenise(input, compact=True, detailed=True)
+
+    output = ""
+
+    # iterate over the tokens and their types
+    for token_type, token in tokens:
+        # if the token is english, normalise it
+        if token_type == "en":
+            token = to_romaji(
+                to_kana(token),
+                uppercase_katakana=True,
+                romanisation=destination_romanisation,
+            )
+
+        # add the normalised or non-english token
+        output += token
+
+    # return the normalised string
+    return output
