@@ -188,7 +188,7 @@ SPECIAL_SYMBOLS = {
 }
 
 # んい -> n'i
-AMBIGUOUS_VOWELS = ["あ", "い", "う", "え", "お", "や", "ゆ", "よ"]
+AMBIGUOUS_KANA = ["あ", "い", "う", "え", "お", "や", "ゆ", "よ", "な", "に", "ぬ", "ね", "の"]
 SMALL_Y = {"ゃ": "ya", "ゅ": "yu", "ょ": "yo"}
 SMALL_Y_EXTRA = {"ぃ": "yi", "ぇ": "ye"}
 SMALL_AIUEO = {"ぁ": "a", "ぃ": "i", "ぅ": "u", "ぇ": "e", "ぉ": "o"}
@@ -284,7 +284,7 @@ def create_kana_to_hepburn_map() -> dict:
     for kana, roma in SMALL_KANA.items():
         set_trans(kana, roma)
 
-    for kana in AMBIGUOUS_VOWELS:
+    for kana in AMBIGUOUS_KANA:
         set_trans(f"ん{kana}", f"n'{subtree_of(kana)['']}")
 
     return romaji_tree.copy()
@@ -335,7 +335,7 @@ def create_kana_to_kunrei_map() -> dict:
     for kana, roma in SMALL_KANA.items():
         set_trans(kana, roma)
 
-    for kana in AMBIGUOUS_VOWELS:
+    for kana in AMBIGUOUS_KANA:
         set_trans(f"ん{kana}", f"n'{subtree_of(kana)['']}")
 
     return romaji_tree.copy()
