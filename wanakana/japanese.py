@@ -257,7 +257,7 @@ def normalise_romaji(
     # full string of kana
     if not ignore_kana:
         return to_romaji(
-            to_kana(input),
+            to_kana(input, use_obsolete_kana=True),
             uppercase_katakana=True,
             romanisation=destination_romanisation,
         )
@@ -274,7 +274,7 @@ def normalise_romaji(
         # if the token is english, normalise it
         if token_type == "en":
             token = to_romaji(
-                to_kana(token),
+                to_kana(token, use_obsolete_kana=True),
                 uppercase_katakana=True,
                 romanisation=destination_romanisation,
             )
